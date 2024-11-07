@@ -76,16 +76,21 @@ function resetTimer () {
 
 lapButton.addEventListener('click', () => {
     let lapItem = document.createElement('li')
+    let blankItem = document.createElement('li')
     lapItem.classList.add('lap-item')
     lapsList.appendChild(lapItem)
     lapItem.innerHTML = `
-        <span class="number">#${lapsList.children.length - 1}</span>
+        <span class="number">#${lapsList.children.length}</span>
         <span class="time-stamp">${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')} : ${milliseconds.toString().padStart(2, '0')}</span>
     `
-    clearLapsButton.addEventListener('click', () => {
-    lapsList.removeChild(lapItem)
-    })
 })
 
+
+// clear all button
+
+
+clearLapsButton.addEventListener('click', () => {
+    lapsList.innerHTML = ``
+    })
 
 
